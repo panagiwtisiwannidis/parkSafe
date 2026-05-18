@@ -3,6 +3,20 @@
 <plist version="1.0">
 <dict>
 
+    <!-- BUNDLE -->
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+
     <!-- LOCATION — WhenInUse only (FIXED: removed Always key) -->
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>ParkSafe needs your location to save your parking spot and help you navigate back to your car.</string>
