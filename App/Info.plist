@@ -34,15 +34,11 @@
     <key>CFBundleDisplayName</key>
     <string>ParkSafe</string>
 
-    <!-- LAUNCH SCREEN — no storyboard needed, uses asset color + image -->
+    <!-- LAUNCH SCREEN — solid colour matching the app background -->
     <key>UILaunchScreen</key>
     <dict>
         <key>UIColorName</key>
         <string>BGTop</string>
-        <key>UIImageName</key>
-        <string>LaunchLogo</string>
-        <key>UIImageRespectsSafeAreaInsets</key>
-        <true/>
     </dict>
 
     <!-- UI CONFIGURATION -->

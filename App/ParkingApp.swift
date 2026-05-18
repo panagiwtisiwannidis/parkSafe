@@ -11,7 +11,7 @@ struct ParkingApp: App {
                 .environmentObject(viewModel)
         }
         // HIGH FIX: Clear badge every time app returns to foreground
-        .onChange(of: scenePhase) { newPhase in
+        .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 viewModel.resetBadge()
             }

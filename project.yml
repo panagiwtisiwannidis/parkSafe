@@ -3,7 +3,7 @@ name: ParkSafe
 options:
   bundleIdPrefix: com.panos
   deploymentTarget:
-    iOS: "16.0"
+    iOS: "17.0"
   defaultConfig: Debug
   createIntermediateGroups: true
   developmentLanguage: en
@@ -16,7 +16,7 @@ targets:
   ParkSafe:
     type: application
     platform: iOS
-    deploymentTarget: "16.0"
+    deploymentTarget: "17.0"
 
     sources:
       - path: App

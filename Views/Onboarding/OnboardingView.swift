@@ -108,7 +108,7 @@ struct OnboardingView: View {
 
     private var skipLink: some View {
         Button(action: advance) {
-            Text("Skip for now")
+            Text(Strings.Onboarding.skip)
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.white.opacity(0.4))
         }

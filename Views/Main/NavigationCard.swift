@@ -10,15 +10,15 @@ struct NavigationCard: View {
             HStack(spacing: 12) {
                 NavButton(
                     icon: "apple.logo",
-                    title: "Apple Maps",
-                    subtitle: "Open in Maps",
+                    title: Strings.Nav.appleTitle,
+                    subtitle: Strings.Nav.appleSubtitle,
                     color: Color(red: 0.2, green: 0.6, blue: 1.0),
                     action: vm.navigateWithAppleMaps
                 )
                 NavButton(
                     icon: "map.fill",
-                    title: "Google Maps",
-                    subtitle: "Open in Google",
+                    title: Strings.Nav.googleTitle,
+                    subtitle: Strings.Nav.googleSubtitle,
                     color: Color(red: 0.2, green: 0.75, blue: 0.45),
                     action: vm.navigateWithGoogleMaps
                 )

@@ -18,10 +18,10 @@ struct NotificationToggleCard: View {
             .animation(.spring(response: 0.3), value: vm.notificationsEnabled)
 
             VStack(alignment: .leading, spacing: 3) {
-                Text("Hourly Reminders")
+                Text(Strings.Notif.title)
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.white)
-                Text(vm.notificationsEnabled ? "Active for 12 hours" : "Get notified every hour")
+                Text(vm.notificationsEnabled ? Strings.Notif.subtitleActive : Strings.Notif.subtitleInactive)
                     .font(.system(size: 12))
                     .foregroundColor(.white.opacity(0.5))
             }
