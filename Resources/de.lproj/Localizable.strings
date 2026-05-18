@@ -74,6 +74,15 @@
 "permission.notif.title" = "Benachrichtigungen";
 "permission.notif.description" = "Stündlich gesendet. Jederzeit deaktivierbar.";
 
+// MARK: - History
+"history.title" = "Parkhistorie";
+"history.empty" = "Noch keine Parkhistorie";
+"history.clear_all" = "Alle löschen";
+"history.clear.confirm.title" = "Historie löschen?";
+"history.clear.confirm.message" = "Alle Standorte aus deiner Parkhistorie werden entfernt.";
+"history.clear.confirm.action" = "Alle löschen";
+"history.restore" = "Wiederherstellen";
+
 // MARK: - Map Accessibility
 "map.pin.label" = "Gespeicherter Parkplatz";
 "map.pin.hint"  = "Dein Auto ist hier geparkt";

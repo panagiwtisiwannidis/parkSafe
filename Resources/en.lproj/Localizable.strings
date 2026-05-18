@@ -74,6 +74,15 @@
 "permission.notif.title" = "Notifications";
 "permission.notif.description" = "Sent every hour. Easily turned off anytime.";
 
+// MARK: - History
+"history.title" = "Parking History";
+"history.empty" = "No parking history yet";
+"history.clear_all" = "Clear All";
+"history.clear.confirm.title" = "Clear History?";
+"history.clear.confirm.message" = "This will remove all locations from your parking history.";
+"history.clear.confirm.action" = "Clear All";
+"history.restore" = "Restore";
+
 // MARK: - Map Accessibility
 "map.pin.label" = "Saved parking location";
 "map.pin.hint"  = "Your car is parked here";

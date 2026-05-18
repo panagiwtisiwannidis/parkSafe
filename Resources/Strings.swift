@@ -93,6 +93,17 @@ enum Strings {
         ]
     }
 
+    // MARK: - History
+    enum History {
+        static var title:                String { L("history.title") }
+        static var empty:                String { L("history.empty") }
+        static var clearAll:             String { L("history.clear_all") }
+        static var clearConfirmTitle:    String { L("history.clear.confirm.title") }
+        static var clearConfirmMessage:  String { L("history.clear.confirm.message") }
+        static var clearConfirmAction:   String { L("history.clear.confirm.action") }
+        static var restoreAction:        String { L("history.restore") }
+    }
+
     // MARK: - Map Accessibility
     enum Map {
         static var pinLabel: String { L("map.pin.label") }

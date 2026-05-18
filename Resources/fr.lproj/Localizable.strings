@@ -74,6 +74,15 @@
 "permission.notif.title" = "Notifications";
 "permission.notif.description" = "Envoyées toutes les heures. Désactivables à tout moment.";
 
+// MARK: - History
+"history.title" = "Historique de Stationnement";
+"history.empty" = "Pas encore d'historique";
+"history.clear_all" = "Tout effacer";
+"history.clear.confirm.title" = "Effacer l'historique ?";
+"history.clear.confirm.message" = "Tous les emplacements seront supprimés de l'historique.";
+"history.clear.confirm.action" = "Tout effacer";
+"history.restore" = "Restaurer";
+
 // MARK: - Map Accessibility
 "map.pin.label" = "Emplacement de stationnement enregistré";
 "map.pin.hint"  = "Votre voiture est garée ici";

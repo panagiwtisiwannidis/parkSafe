@@ -74,6 +74,15 @@
 "permission.notif.title" = "Notificaciones";
 "permission.notif.description" = "Enviadas cada hora. Desactivables en cualquier momento.";
 
+// MARK: - History
+"history.title" = "Historial de Aparcamiento";
+"history.empty" = "Aún no hay historial";
+"history.clear_all" = "Borrar todo";
+"history.clear.confirm.title" = "¿Borrar historial?";
+"history.clear.confirm.message" = "Se eliminarán todas las ubicaciones del historial.";
+"history.clear.confirm.action" = "Borrar todo";
+"history.restore" = "Restaurar";
+
 // MARK: - Map Accessibility
 "map.pin.label" = "Ubicación de aparcamiento guardada";
 "map.pin.hint"  = "Tu coche está aparcado aquí";

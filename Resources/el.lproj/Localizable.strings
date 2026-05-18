@@ -74,6 +74,15 @@
 "permission.notif.title" = "Ειδοποιήσεις";
 "permission.notif.description" = "Αποστέλλονται κάθε ώρα. Μπορείς να τις απενεργοποιήσεις ανά πάσα στιγμή.";
 
+// MARK: - History
+"history.title" = "Ιστορικό Στάθμευσης";
+"history.empty" = "Δεν υπάρχει ιστορικό στάθμευσης";
+"history.clear_all" = "Εκκαθάριση";
+"history.clear.confirm.title" = "Εκκαθάριση Ιστορικού;";
+"history.clear.confirm.message" = "Αυτό θα αφαιρέσει όλες τις τοποθεσίες από το ιστορικό στάθμευσης.";
+"history.clear.confirm.action" = "Εκκαθάριση";
+"history.restore" = "Επαναφορά";
+
 // MARK: - Map Accessibility
 "map.pin.label" = "Αποθηκευμένη θέση στάθμευσης";
 "map.pin.hint"  = "Το αυτοκίνητό σου είναι εδώ";

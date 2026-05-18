@@ -13,6 +13,7 @@ final class ParkingViewModel: ObservableObject {
     // MARK: - Published State (Views read these)
 
     @Published var savedSpot: ParkingSpot?
+    @Published var spotHistory: [ParkingSpot] = []
     @Published var isLocating: Bool = false
     @Published var notificationsEnabled: Bool = false
     @Published var errorMessage: String?
@@ -46,6 +47,7 @@ final class ParkingViewModel: ObservableObject {
 
         bindLocationService()
         savedSpot = persistenceService.loadSpot()
+        spotHistory = persistenceService.loadHistory()
         notificationService.checkPendingStatus { [weak self] active in
             self?.notificationsEnabled = active
         }
@@ -136,6 +138,10 @@ final class ParkingViewModel: ObservableObject {
     // MARK: - Private save helper
 
     private func commitSave(location: CLLocation) {
+        if let existing = savedSpot {
+            persistenceService.addToHistory(existing)
+            spotHistory = persistenceService.loadHistory()
+        }
         var spot = ParkingSpot(coordinate: location.coordinate)
         persistenceService.saveSpot(spot)
         savedSpot = spot
@@ -154,6 +160,26 @@ final class ParkingViewModel: ObservableObject {
         savedSpot = nil
         persistenceService.clearSpot()
         cancelNotifications()
+    }
+
+    // MARK: - History Intents
+
+    func deleteFromHistory(at offsets: IndexSet) {
+        offsets.forEach { persistenceService.removeFromHistory(id: spotHistory[$0].id) }
+        spotHistory = persistenceService.loadHistory()
+    }
+
+    func clearHistory() {
+        persistenceService.clearHistory()
+        spotHistory = []
+    }
+
+    func navigateHistorySpotWithAppleMaps(_ spot: ParkingSpot) {
+        navigationService.openAppleMaps(to: spot.coordinate)
+    }
+
+    func navigateHistorySpotWithGoogleMaps(_ spot: ParkingSpot) {
+        navigationService.openGoogleMaps(to: spot.coordinate)
     }
 
     /// Navigate to saved spot via Apple Maps.

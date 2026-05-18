@@ -18,6 +18,7 @@
 		7D34692BBED0BD193CB16832 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC59BC3077FE86E4F07DC4E8 /* Localizable.strings */; };
 		97B5D67FB77885F7DFA25940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142E78C01B02C18ED62FCC4C /* Assets.xcassets */; };
 		A2F665754B7BC44C1CAA769D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF1A2BF759BF19E784114D /* LocationService.swift */; };
+		AD6150E661D6A8D0592CB1AC /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F623AFC6C91F88EF68EA3844 /* HistoryView.swift */; };
 		B0FD16D4D9699C15BBE25354 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA129A43852407C2C413132B /* ContentView.swift */; };
 		BD64A1AFEB3ADD35E99795CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6C0C55A512C161AB0E85E61 /* Preview Assets.xcassets */; };
 		CAC9A96E0FE2A991EEA8DF7D /* NavigationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0750F8CCC134CB0018EB0D /* NavigationCard.swift */; };
@@ -56,6 +57,7 @@
 		E6C0C55A512C161AB0E85E61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F34E6BBD43FD6668C1FC02C2 /* ActionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViews.swift; sourceTree = "<group>"; };
 		F5CC8137ACBB7D0CD3F0A481 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
+		F623AFC6C91F88EF68EA3844 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		F64FC89A0B9AAF78FBB6B289 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				F34E6BBD43FD6668C1FC02C2 /* ActionViews.swift */,
 				CA129A43852407C2C413132B /* ContentView.swift */,
 				B351C5F6D110D3D625A50F88 /* HeaderView.swift */,
+				F623AFC6C91F88EF68EA3844 /* HistoryView.swift */,
 				F64FC89A0B9AAF78FBB6B289 /* MainView.swift */,
 				3C0750F8CCC134CB0018EB0D /* NavigationCard.swift */,
 				33A5E53AB08DFFD9C4AE7554 /* NotificationToggleCard.swift */,
@@ -257,6 +260,7 @@
 				4C4755D809EA52098AEA85AE /* Components.swift in Sources */,
 				B0FD16D4D9699C15BBE25354 /* ContentView.swift in Sources */,
 				E877A8375E25B500F7994847 /* HeaderView.swift in Sources */,
+				AD6150E661D6A8D0592CB1AC /* HistoryView.swift in Sources */,
 				A2F665754B7BC44C1CAA769D /* LocationService.swift in Sources */,
 				F75DE14414CB1809221C5CD8 /* MainView.swift in Sources */,
 				CAC9A96E0FE2A991EEA8DF7D /* NavigationCard.swift in Sources */,

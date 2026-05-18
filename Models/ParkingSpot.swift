@@ -33,6 +33,10 @@ struct ParkingSpot: Codable, Identifiable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
+    var coordinateString: String {
+        String(format: "%.4f, %.4f", latitude, longitude)
+    }
+
     var formattedTimestamp: String {
         let f = DateFormatter()
         f.timeStyle = .short

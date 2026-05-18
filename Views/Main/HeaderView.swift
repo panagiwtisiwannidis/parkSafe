@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HeaderView: View {
     @EnvironmentObject var vm: ParkingViewModel
+    @State private var showHistory = false
 
     var body: some View {
         HStack(alignment: .top) {
@@ -14,13 +15,33 @@ struct HeaderView: View {
                     .foregroundColor(.white.opacity(0.7))
             }
             Spacer()
-            ZStack {
-                Circle()
-                    .fill(.white.opacity(0.15))
-                    .frame(width: 52, height: 52)
-                Image(systemName: "car.fill")
-                    .font(.system(size: 22))
-                    .foregroundColor(.white)
+            HStack(spacing: 10) {
+                Button {
+                    showHistory = true
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(.white.opacity(0.15))
+                            .frame(width: 52, height: 52)
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                    }
+                }
+                .accessibilityLabel(Strings.History.title)
+                .sheet(isPresented: $showHistory) {
+                    HistoryView()
+                        .environmentObject(vm)
+                }
+
+                ZStack {
+                    Circle()
+                        .fill(.white.opacity(0.15))
+                        .frame(width: 52, height: 52)
+                    Image(systemName: "car.fill")
+                        .font(.system(size: 22))
+                        .foregroundColor(.white)
+                }
             }
         }
         .padding(.top, 8)
