@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParkSafe — Privacy Policy</title>
+  <style>
+    :root {
+      --bg:      #0d1b2a;
+      --surface: #152337;
+      --border:  #1e3a55;
+      --accent:  #3b82f6;
+      --text:    #e2e8f0;
+      --muted:   #8facc4;
+      --radius:  14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 16px 60px;
+    }
+
+    header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 52px 0 36px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .lang-switch {
+      max-width: 720px;
+      margin: 0 auto 32px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-switch button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all .15s;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h2 .icon {
+      font-size: 20px;
+    }
+
+    .card p { color: var(--text); margin-bottom: 10px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    ul li { margin-bottom: 6px; color: var(--text); }
+
+    .badge {
+      display: inline-block;
+      background: rgba(59,130,246,.15);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,.3);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .highlight {
+      background: rgba(59,130,246,.08);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .updated {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 40px;
+    }
+
+    [data-lang="el"] { display: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">P</div>
+  <div>
+    <h1>ParkSafe</h1>
+    <p data-lang="en">Privacy Policy</p>
+    <p data-lang="el">Πολιτική Απορρήτου</p>
+  </div>
+</header>
+
+<div class="lang-switch">
+  <button class="active" onclick="setLang('en')">English</button>
+  <button onclick="setLang('el')">Ελληνικά</button>
+</div>
+
+<main>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h2><span class="icon">🔒</span> <span data-lang="en">The short version</span><span data-lang="el">Σύντομη έκδοση</span></h2>
+    <div class="highlight" data-lang="en">
+      ParkSafe stores your data exclusively on your device. Nothing is ever sent to a server, shared with third parties, or used for advertising.
+    </div>
+    <div class="highlight" data-lang="el">
+      Το ParkSafe αποθηκεύει τα δεδομένα σας αποκλειστικά στη συσκευή σας. Τίποτα δεν αποστέλλεται σε κάποιον server, δεν κοινοποιείται σε τρίτους, ούτε χρησιμοποιείται για διαφήμιση.
+    </div>
+  </div>
+
+  <!-- DATA COLLECTED -->
+  <div class="card">
+    <h2><span class="icon">📍</span> <span data-lang="en">Data we collect</span><span data-lang="el">Δεδομένα που συλλέγουμε</span></h2>
+    <p data-lang="en">ParkSafe collects and stores the following data <strong>locally on your device only</strong>:</p>
+    <p data-lang="el">Το ParkSafe συλλέγει και αποθηκεύει τα παρακάτω δεδομένα <strong>αποκλειστικά τοπικά στη συσκευή σας</strong>:</p>
+    <ul>
+      <li data-lang="en"><strong>GPS location</strong> — only when you tap "Save Parking Spot", and only while the app is open (<span class="badge">When In Use</span>). Your location is never accessed in the background.</li>
+      <li data-lang="el"><strong>Τοποθεσία GPS</strong> — μόνο όταν πατάτε "Αποθήκευση θέσης στάθμευσης" και μόνο όσο η εφαρμογή είναι ανοιχτή (<span class="badge">When In Use</span>). Δεν προσπελαύνουμε ποτέ την τοποθεσία σας στο παρασκήνιο.</li>
+      <li data-lang="en"><strong>Saved parking spot</strong> — coordinates, timestamp, and reverse-geocoded address. Stored in device UserDefaults.</li>
+      <li data-lang="el"><strong>Αποθηκευμένη θέση στάθμευσης</strong> — συντεταγμένες, ώρα αποθήκευσης και διεύθυνση. Αποθηκεύεται στα UserDefaults της συσκευής.</li>
+      <li data-lang="en"><strong>Notification preference</strong> — whether hourly reminders are enabled. Stored locally.</li>
+      <li data-lang="el"><strong>Προτίμηση ειδοποιήσεων</strong> — αν είναι ενεργοποιημένες οι ωριαίες υπενθυμίσεις. Αποθηκεύεται τοπικά.</li>
+    </ul>
+    <p data-lang="en">We do <strong>not</strong> collect: names, email addresses, device identifiers, analytics, crash reports, or any usage data.</p>
+    <p data-lang="el">Δεν συλλέγουμε: ονόματα, email, αναγνωριστικά συσκευής, αναλυτικά στοιχεία, αναφορές σφαλμάτων ή οποιαδήποτε δεδομένα χρήσης.</p>
+  </div>
+
+  <!-- HOW WE USE IT -->
+  <div class="card">
+    <h2><span class="icon">⚙️</span> <span data-lang="en">How we use your data</span><span data-lang="el">Πώς χρησιμοποιούμε τα δεδομένα σας</span></h2>
+    <p data-lang="en">Your location is used solely to:</p>
+    <p data-lang="el">Η τοποθεσία σας χρησιμοποιείται αποκλειστικά για:</p>
+    <ul>
+      <li data-lang="en">Pin your parking spot on the in-app map</li>
+      <li data-lang="el">Σήμανση της θέσης στάθμευσής σας στον χάρτη της εφαρμογής</li>
+      <li data-lang="en">Show walking distance back to your car</li>
+      <li data-lang="el">Εμφάνιση της απόστασης με τα πόδια μέχρι το αυτοκίνητό σας</li>
+      <li data-lang="en">Pass coordinates to Apple Maps or Google Maps when you request navigation</li>
+      <li data-lang="el">Μεταβίβαση συντεταγμένων στο Apple Maps ή Google Maps όταν ζητάτε πλοήγηση</li>
+    </ul>
+  </div>
+
+  <!-- DATA STORAGE -->
+  <div class="card">
+    <h2><span class="icon">💾</span> <span data-lang="en">Data storage &amp; retention</span><span data-lang="el">Αποθήκευση &amp; διατήρηση δεδομένων</span></h2>
+    <p data-lang="en">All data is stored in Apple's <strong>UserDefaults</strong> — a local storage system on your iPhone. Data is <strong>never transmitted</strong> to any external server.</p>
+    <p data-lang="el">Όλα τα δεδομένα αποθηκεύονται στο <strong>UserDefaults</strong> της Apple — ένα τοπικό σύστημα αποθήκευσης στο iPhone σας. Τα δεδομένα <strong>δεν αποστέλλονται ποτέ</strong> σε κάποιον εξωτερικό server.</p>
+    <p data-lang="en">You can delete all data at any time by tapping <strong>"Clear Parking Spot"</strong> in the app, or by deleting the app entirely.</p>
+    <p data-lang="el">Μπορείτε να διαγράψετε όλα τα δεδομένα ανά πάσα στιγμή πατώντας <strong>"Εκκαθάριση θέσης στάθμευσης"</strong> στην εφαρμογή ή διαγράφοντας ολόκληρη την εφαρμογή.</p>
+  </div>
+
+  <!-- THIRD PARTIES -->
+  <div class="card">
+    <h2><span class="icon">🗺️</span> <span data-lang="en">Third-party services</span><span data-lang="el">Υπηρεσίες τρίτων</span></h2>
+    <p data-lang="en">When you tap a navigation button, ParkSafe passes your saved parking coordinates to:</p>
+    <p data-lang="el">Όταν πατάτε ένα κουμπί πλοήγησης, το ParkSafe μεταβιβάζει τις αποθηκευμένες συντεταγμένες στάθμευσης στο:</p>
+    <ul>
+      <li data-lang="en"><strong>Apple Maps</strong> — governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a></li>
+      <li data-lang="el"><strong>Apple Maps</strong> — διέπεται από την <a href="https://www.apple.com/legal/privacy/" target="_blank">Πολιτική Απορρήτου της Apple</a></li>
+      <li data-lang="en"><strong>Google Maps</strong> (if installed) — governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a></li>
+      <li data-lang="el"><strong>Google Maps</strong> (αν είναι εγκατεστημένο) — διέπεται από την <a href="https://policies.google.com/privacy" target="_blank">Πολιτική Απορρήτου της Google</a></li>
+    </ul>
+    <p data-lang="en">ParkSafe has no control over how those services handle the coordinates after the handoff.</p>
+    <p data-lang="el">Το ParkSafe δεν έχει κανέναν έλεγχο στον τρόπο που αυτές οι υπηρεσίες χειρίζονται τις συντεταγμένες μετά τη μεταβίβαση.</p>
+  </div>
+
+  <!-- CHILDREN -->
+  <div class="card">
+    <h2><span class="icon">👶</span> <span data-lang="en">Children's privacy</span><span data-lang="el">Απόρρητο παιδιών</span></h2>
+    <p data-lang="en">ParkSafe does not knowingly collect any information from children under 13. The app is rated 4+ and contains no age-restricted content.</p>
+    <p data-lang="el">Το ParkSafe δεν συλλέγει εν γνώσει του πληροφορίες από παιδιά κάτω των 13 ετών. Η εφαρμογή έχει βαθμολογία 4+ και δεν περιέχει περιεχόμενο με ηλικιακό περιορισμό.</p>
+  </div>
+
+  <!-- CHANGES -->
+  <div class="card">
+    <h2><span class="icon">📋</span> <span data-lang="en">Changes to this policy</span><span data-lang="el">Αλλαγές στην πολιτική</span></h2>
+    <p data-lang="en">If this policy changes, the updated version will be posted here with a new effective date. Continued use of the app after changes constitutes acceptance.</p>
+    <p data-lang="el">Αν αλλάξει αυτή η πολιτική, η ενημερωμένη έκδοση θα δημοσιευτεί εδώ με νέα ημερομηνία ισχύος. Η συνεχιζόμενη χρήση της εφαρμογής μετά από αλλαγές συνιστά αποδοχή.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <h2><span class="icon">✉️</span> <span data-lang="en">Contact</span><span data-lang="el">Επικοινωνία</span></h2>
+    <p data-lang="en">Questions about this privacy policy? Contact us at:</p>
+    <p data-lang="el">Ερωτήσεις για αυτήν την πολιτική απορρήτου; Επικοινωνήστε μαζί μας:</p>
+    <p><a href="mailto:panosioann1997@gmail.com">panosioann1997@gmail.com</a></p>
+  </div>
+
+  <p class="updated" data-lang="en">Effective date: May 18, 2026</p>
+  <p class="updated" data-lang="el">Ημερομηνία ισχύος: 18 Μαΐου 2026</p>
+
+</main>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-switch button').forEach((btn, i) => {
+      btn.classList.toggle('active', (i === 0 && lang === 'en') || (i === 1 && lang === 'el'));
+    });
+  }
+  setLang('en');
+</script>
+
+</body>
+</html>
