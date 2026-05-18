@@ -75,6 +75,12 @@
 "permission.notif.title" = "Ειδοποιήσεις";
 "permission.notif.description" = "Αποστέλλονται κάθε ώρα. Μπορείς να τις απενεργοποιήσεις ανά πάσα στιγμή.";
 
+// MARK: - Note
+"note.title" = "Σημείωση";
+"note.add" = "Προσθήκη σημείωσης…";
+"note.placeholder" = "π.χ. Όροφος 3, Σειρά Β…";
+"note.save" = "Αποθήκευση";
+
 // MARK: - History
 "history.title" = "Ιστορικό Στάθμευσης";
 "history.empty" = "Δεν υπάρχει ιστορικό στάθμευσης";

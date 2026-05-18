@@ -162,6 +162,14 @@ final class ParkingViewModel: ObservableObject {
         if savedSpots.isEmpty { cancelNotifications() }
     }
 
+    func updateSpotNote(id: UUID, note: String?) {
+        guard let idx = savedSpots.firstIndex(where: { $0.id == id }) else { return }
+        var spot = savedSpots[idx]
+        spot.note = note
+        persistenceService.upsertSpot(spot)
+        savedSpots = persistenceService.loadSpots()
+    }
+
     // MARK: - History Intents
 
     func deleteFromHistory(at offsets: IndexSet) {

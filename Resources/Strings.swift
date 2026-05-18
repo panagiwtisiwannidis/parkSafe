@@ -94,6 +94,14 @@ enum Strings {
         ]
     }
 
+    // MARK: - Note
+    enum Note {
+        static var title:       String { L("note.title") }
+        static var add:         String { L("note.add") }
+        static var placeholder: String { L("note.placeholder") }
+        static var save:        String { L("note.save") }
+    }
+
     // MARK: - History
     enum History {
         static var title:                String { L("history.title") }

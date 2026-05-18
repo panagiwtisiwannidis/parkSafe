@@ -75,6 +75,12 @@
 "permission.notif.title" = "Benachrichtigungen";
 "permission.notif.description" = "Stündlich gesendet. Jederzeit deaktivierbar.";
 
+// MARK: - Note
+"note.title" = "Notiz";
+"note.add" = "Notiz hinzufügen…";
+"note.placeholder" = "z. B. Etage 3, Reihe B…";
+"note.save" = "Speichern";
+
 // MARK: - History
 "history.title" = "Parkhistorie";
 "history.empty" = "Noch keine Parkhistorie";

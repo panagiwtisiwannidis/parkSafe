@@ -75,6 +75,12 @@
 "permission.notif.title" = "Notifications";
 "permission.notif.description" = "Sent every hour. Easily turned off anytime.";
 
+// MARK: - Note
+"note.title" = "Note";
+"note.add" = "Add a note…";
+"note.placeholder" = "e.g. Level 3, Row B…";
+"note.save" = "Save";
+
 // MARK: - History
 "history.title" = "Parking History";
 "history.empty" = "No parking history yet";

@@ -46,9 +46,15 @@ struct HistoryView: View {
                 HistoryRowView(spot: spot)
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
-            }
-            .onDelete { offsets in
-                vm.deleteFromHistory(at: offsets)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(role: .destructive) {
+                            if let idx = vm.spotHistory.firstIndex(where: { $0.id == spot.id }) {
+                                vm.deleteFromHistory(at: IndexSet(integer: idx))
+                            }
+                        } label: {
+                            Label(Strings.Clear.action, systemImage: "trash")
+                        }
+                    }
             }
         }
         .listStyle(.plain)
@@ -90,9 +96,20 @@ private struct HistoryRowView: View {
                 Text(spot.address ?? spot.coordinateString)
                     .font(.system(size: 15, weight: .semibold))
                     .lineLimit(1)
-                Text(spot.relativeTime)
-                    .font(.system(size: 13))
-                    .foregroundStyle(.secondary)
+                HStack(spacing: 4) {
+                    Text(spot.relativeTime)
+                        .font(.system(size: 13))
+                        .foregroundStyle(.secondary)
+                    if let note = spot.note, !note.isEmpty {
+                        Text("·")
+                            .font(.system(size: 13))
+                            .foregroundStyle(.secondary)
+                        Text(note)
+                            .font(.system(size: 13))
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                }
             }
 
             Spacer()

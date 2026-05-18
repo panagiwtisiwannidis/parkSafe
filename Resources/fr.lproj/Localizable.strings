@@ -75,6 +75,12 @@
 "permission.notif.title" = "Notifications";
 "permission.notif.description" = "Envoyées toutes les heures. Désactivables à tout moment.";
 
+// MARK: - Note
+"note.title" = "Note";
+"note.add" = "Ajouter une note…";
+"note.placeholder" = "ex. Niveau 3, Rangée B…";
+"note.save" = "Enregistrer";
+
 // MARK: - History
 "history.title" = "Historique de Stationnement";
 "history.empty" = "Pas encore d'historique";
