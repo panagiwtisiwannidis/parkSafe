@@ -51,9 +51,9 @@
 		A81B6DEA9008C0AD78266D83 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B351C5F6D110D3D625A50F88 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B4168CCE9A46FD973A88D2DC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		BC087CF27FF3D79BC5694BF6 /* ParkSafe.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ParkSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC087CF27FF3D79BC5694BF6 /* ParkSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA129A43852407C2C413132B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D950E08A36D708E467A43D6C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D950E08A36D708E467A43D6C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		E6C0C55A512C161AB0E85E61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F34E6BBD43FD6668C1FC02C2 /* ActionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViews.swift; sourceTree = "<group>"; };
 		F5CC8137ACBB7D0CD3F0A481 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
@@ -368,6 +368,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
+				DEVELOPMENT_TEAM = 8H368NWK48;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -454,6 +455,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
+				DEVELOPMENT_TEAM = 8H368NWK48;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

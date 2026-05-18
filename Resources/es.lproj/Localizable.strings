@@ -13,6 +13,7 @@
 "button.save" = "Guardar Lugar";
 "button.saving" = "Obteniendo ubicación…";
 "button.clear" = "Eliminar Lugar";
+"button.add_spot" = "Añadir Nuevo Aparcamiento";
 
 // MARK: - Navigation Card
 "nav.section.title" = "Volver al Coche";

@@ -15,14 +15,17 @@ struct MainView: View {
                 VStack(spacing: 24) {
                     HeaderView()
 
-                    if let spot = vm.savedSpot {
-                        SavedSpotCard(spot: spot)
-                        NavigationCard()
-                        NotificationToggleCard()
-                        ClearSpotButton()
-                    } else {
+                    if vm.savedSpots.isEmpty {
                         EmptyStateView()
                         SaveSpotButton()
+                    } else {
+                        ForEach(vm.savedSpots) { spot in
+                            SavedSpotCard(spot: spot)
+                            NavigationCard(spot: spot)
+                            ClearSpotButton(spotId: spot.id)
+                        }
+                        NotificationToggleCard()
+                        AddSpotButton()
                     }
                 }
                 .padding(.horizontal, 20)

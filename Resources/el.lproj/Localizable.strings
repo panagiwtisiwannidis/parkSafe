@@ -13,6 +13,7 @@
 "button.save" = "Αποθήκευση Θέσης";
 "button.saving" = "Λήψη Τοποθεσίας…";
 "button.clear" = "Διαγραφή Θέσης";
+"button.add_spot" = "Προσθήκη Νέας Θέσης Στάθμευσης";
 
 // MARK: - Navigation Card
 "nav.section.title" = "Πλοήγηση";

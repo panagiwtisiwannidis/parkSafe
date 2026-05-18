@@ -13,6 +13,7 @@
 "button.save" = "Parkplatz speichern";
 "button.saving" = "Standort wird ermittelt…";
 "button.clear" = "Parkplatz löschen";
+"button.add_spot" = "Neuen Parkplatz hinzufügen";
 
 // MARK: - Navigation Card
 "nav.section.title" = "Zurück zum Auto";

@@ -21,9 +21,10 @@ enum Strings {
 
     // MARK: - Buttons
     enum Button {
-        static var save:  String { L("button.save") }
-        static var saving: String { L("button.saving") }
-        static var clear: String { L("button.clear") }
+        static var save:     String { L("button.save") }
+        static var saving:   String { L("button.saving") }
+        static var clear:    String { L("button.clear") }
+        static var addSpot:  String { L("button.add_spot") }
     }
 
     // MARK: - Navigation Card

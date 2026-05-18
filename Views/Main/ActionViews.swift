@@ -105,10 +105,66 @@ struct SaveSpotButton: View {
     }
 }
 
+// MARK: - AddSpotButton
+
+struct AddSpotButton: View {
+    @EnvironmentObject var vm: ParkingViewModel
+    @State private var isPressed = false
+    @State private var showDeniedAlert = false
+
+    var body: some View {
+        Button(action: handleSave) {
+            HStack(spacing: 10) {
+                if vm.isLocating {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(0.85)
+                } else {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 20, weight: .semibold))
+                }
+                Text(vm.isLocating ? Strings.Button.saving : Strings.Button.addSpot)
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 54)
+            .background(Color.accentColor.opacity(0.9))
+            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .scaleEffect(isPressed ? 0.97 : 1.0)
+            .shadow(color: Color.accentColor.opacity(0.35), radius: 12, y: 6)
+        }
+        .buttonStyle(PlainButtonStyle())
+        .disabled(vm.isLocating)
+        .accessibilityLabel(Strings.Button.addSpot)
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0)
+                .onChanged { _ in withAnimation(.easeIn(duration: 0.1))  { isPressed = true  } }
+                .onEnded   { _ in withAnimation(.easeOut(duration: 0.15)) { isPressed = false } }
+        )
+        .alert(Strings.Location.deniedTitle, isPresented: $showDeniedAlert) {
+            Button(Strings.Location.deniedSettings) {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button(Strings.Location.deniedCancel, role: .cancel) {}
+        } message: {
+            Text(Strings.Location.deniedMessage)
+        }
+    }
+
+    private func handleSave() {
+        if vm.locationIsDenied { showDeniedAlert = true; return }
+        vm.locateAndSave()
+    }
+}
+
 // MARK: - ClearSpotButton
 
 struct ClearSpotButton: View {
     @EnvironmentObject var vm: ParkingViewModel
+    let spotId: UUID
     @State private var showConfirm = false
 
     var body: some View {
@@ -134,7 +190,7 @@ struct ClearSpotButton: View {
         .accessibilityHint("Removes saved spot and cancels all reminders")
         .confirmationDialog(Strings.Clear.confirmTitle, isPresented: $showConfirm, titleVisibility: .visible) {
             Button(Strings.Clear.action, role: .destructive) {
-                withAnimation(.spring(response: 0.4)) { vm.clearParkingSpot() }
+                withAnimation(.spring(response: 0.4)) { vm.clearSpot(id: spotId) }
             }
             Button(Strings.Clear.cancel, role: .cancel) {}
         } message: {

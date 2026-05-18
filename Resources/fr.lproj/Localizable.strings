@@ -13,6 +13,7 @@
 "button.save" = "Enregistrer la Place";
 "button.saving" = "Localisation en cours…";
 "button.clear" = "Supprimer la Place";
+"button.add_spot" = "Ajouter un Nouvel Emplacement";
 
 // MARK: - Navigation Card
 "nav.section.title" = "Retourner au Véhicule";

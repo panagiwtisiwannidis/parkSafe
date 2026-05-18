@@ -13,6 +13,7 @@
 "button.save" = "Save Parking Spot";
 "button.saving" = "Getting Location…";
 "button.clear" = "Clear Parking Spot";
+"button.add_spot" = "Add New Parking Spot";
 
 // MARK: - Navigation Card
 "nav.section.title" = "Navigate Back";

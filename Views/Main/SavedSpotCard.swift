@@ -47,7 +47,7 @@ struct SavedSpotCard: View {
 
             HStack(spacing: 12) {
                 InfoChip(icon: "clock.fill",   text: spot.relativeTime)
-                if let dist = vm.distanceToSpot {
+                if let dist = vm.distance(to: spot) {
                     InfoChip(icon: "figure.walk", text: dist)
                 }
                 Spacer()

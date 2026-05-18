@@ -10,7 +10,7 @@ struct HeaderView: View {
                 Text("ParkSafe")
                     .font(.system(size: 34, weight: .black, design: .rounded))
                     .foregroundColor(.white)
-                Text(vm.savedSpot != nil ? Strings.Header.subtitleSaved : Strings.Header.subtitleEmpty)
+                Text(vm.savedSpots.isEmpty ? Strings.Header.subtitleEmpty : Strings.Header.subtitleSaved)
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(.white.opacity(0.7))
             }

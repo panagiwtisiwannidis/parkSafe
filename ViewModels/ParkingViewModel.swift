@@ -12,7 +12,7 @@ final class ParkingViewModel: ObservableObject {
 
     // MARK: - Published State (Views read these)
 
-    @Published var savedSpot: ParkingSpot?
+    @Published var savedSpots: [ParkingSpot] = []
     @Published var spotHistory: [ParkingSpot] = []
     @Published var isLocating: Bool = false
     @Published var notificationsEnabled: Bool = false
@@ -46,7 +46,7 @@ final class ParkingViewModel: ObservableObject {
         self.persistenceService  = persistenceService
 
         bindLocationService()
-        savedSpot = persistenceService.loadSpot()
+        savedSpots = persistenceService.loadSpots()
         spotHistory = persistenceService.loadHistory()
         notificationService.checkPendingStatus { [weak self] active in
             self?.notificationsEnabled = active
@@ -139,8 +139,8 @@ final class ParkingViewModel: ObservableObject {
 
     private func commitSave(location: CLLocation) {
         var spot = ParkingSpot(coordinate: location.coordinate)
-        persistenceService.saveSpot(spot)
-        savedSpot = spot
+        persistenceService.upsertSpot(spot)
+        savedSpots = persistenceService.loadSpots()
         persistenceService.addToHistory(spot)
         spotHistory = persistenceService.loadHistory()
         scheduleNotifications()
@@ -148,18 +148,18 @@ final class ParkingViewModel: ObservableObject {
 
         reverseGeocode(location: location) { [weak self] address in
             spot.address = address
-            self?.savedSpot = spot
-            self?.persistenceService.saveSpot(spot)
+            self?.persistenceService.upsertSpot(spot)
             self?.persistenceService.addToHistory(spot)
+            self?.savedSpots = self?.persistenceService.loadSpots() ?? []
             self?.spotHistory = self?.persistenceService.loadHistory() ?? []
         }
     }
 
-    /// Remove the saved parking spot and cancel all reminders.
-    func clearParkingSpot() {
-        savedSpot = nil
-        persistenceService.clearSpot()
-        cancelNotifications()
+    /// Remove a specific parking spot by ID.
+    func clearSpot(id: UUID) {
+        persistenceService.removeSpot(id: id)
+        savedSpots = persistenceService.loadSpots()
+        if savedSpots.isEmpty { cancelNotifications() }
     }
 
     // MARK: - History Intents
@@ -174,24 +174,12 @@ final class ParkingViewModel: ObservableObject {
         spotHistory = []
     }
 
-    func navigateHistorySpotWithAppleMaps(_ spot: ParkingSpot) {
+    func navigateWithAppleMaps(spot: ParkingSpot) {
         navigationService.openAppleMaps(to: spot.coordinate)
     }
 
-    func navigateHistorySpotWithGoogleMaps(_ spot: ParkingSpot) {
+    func navigateWithGoogleMaps(spot: ParkingSpot) {
         navigationService.openGoogleMaps(to: spot.coordinate)
-    }
-
-    /// Navigate to saved spot via Apple Maps.
-    func navigateWithAppleMaps() {
-        guard let coord = savedSpot?.coordinate else { return }
-        navigationService.openAppleMaps(to: coord)
-    }
-
-    /// Navigate to saved spot via Google Maps (or browser fallback).
-    func navigateWithGoogleMaps() {
-        guard let coord = savedSpot?.coordinate else { return }
-        navigationService.openGoogleMaps(to: coord)
     }
 
     /// Toggle hourly reminders on or off.
@@ -213,8 +201,8 @@ final class ParkingViewModel: ObservableObject {
 
     // MARK: - Computed Helpers (Views use these)
 
-    var distanceToSpot: String? {
-        guard let spot = savedSpot, let current = currentLocation else { return nil }
+    func distance(to spot: ParkingSpot) -> String? {
+        guard let current = currentLocation else { return nil }
         return spot.formattedDistance(from: current)
     }
 

@@ -99,12 +99,12 @@ private struct HistoryRowView: View {
 
             Menu {
                 Button {
-                    vm.navigateHistorySpotWithAppleMaps(spot)
+                    vm.navigateWithAppleMaps(spot: spot)
                 } label: {
                     Label("Apple Maps", systemImage: "map")
                 }
                 Button {
-                    vm.navigateHistorySpotWithGoogleMaps(spot)
+                    vm.navigateWithGoogleMaps(spot: spot)
                 } label: {
                     Label("Google Maps", systemImage: "map.fill")
                 }

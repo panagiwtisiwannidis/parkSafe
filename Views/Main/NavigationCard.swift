@@ -2,6 +2,7 @@ import SwiftUI
 
 struct NavigationCard: View {
     @EnvironmentObject var vm: ParkingViewModel
+    let spot: ParkingSpot
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -13,14 +14,14 @@ struct NavigationCard: View {
                     title: Strings.Nav.appleTitle,
                     subtitle: Strings.Nav.appleSubtitle,
                     color: Color(red: 0.2, green: 0.6, blue: 1.0),
-                    action: vm.navigateWithAppleMaps
+                    action: { vm.navigateWithAppleMaps(spot: spot) }
                 )
                 NavButton(
                     icon: "map.fill",
                     title: Strings.Nav.googleTitle,
                     subtitle: Strings.Nav.googleSubtitle,
                     color: Color(red: 0.2, green: 0.75, blue: 0.45),
-                    action: vm.navigateWithGoogleMaps
+                    action: { vm.navigateWithGoogleMaps(spot: spot) }
                 )
             }
         }

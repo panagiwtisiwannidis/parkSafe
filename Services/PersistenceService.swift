@@ -6,7 +6,8 @@ import Foundation
 
 final class PersistenceService {
 
-    private let key        = "parksafe_saved_spot"
+    private let spotsKey   = "parksafe_saved_spots"
+    private let legacyKey  = "parksafe_saved_spot"
     private let historyKey = "parksafe_spot_history"
     private let maxHistory = 20
     private let defaults: UserDefaults
@@ -15,20 +16,42 @@ final class PersistenceService {
         self.defaults = defaults
     }
 
-    // MARK: - Current Spot
+    // MARK: - Active Spots (multi-spot)
 
-    func loadSpot() -> ParkingSpot? {
-        guard let data = defaults.data(forKey: key) else { return nil }
-        return try? JSONDecoder().decode(ParkingSpot.self, from: data)
+    func loadSpots() -> [ParkingSpot] {
+        if let data = defaults.data(forKey: spotsKey),
+           let spots = try? JSONDecoder().decode([ParkingSpot].self, from: data) {
+            return spots
+        }
+        // migrate legacy single-spot
+        if let data = defaults.data(forKey: legacyKey),
+           let old = try? JSONDecoder().decode(ParkingSpot.self, from: data) {
+            saveSpots([old])
+            defaults.removeObject(forKey: legacyKey)
+            return [old]
+        }
+        return []
     }
 
-    func saveSpot(_ spot: ParkingSpot) {
-        guard let data = try? JSONEncoder().encode(spot) else { return }
-        defaults.set(data, forKey: key)
+    func saveSpots(_ spots: [ParkingSpot]) {
+        guard let data = try? JSONEncoder().encode(spots) else { return }
+        defaults.set(data, forKey: spotsKey)
     }
 
-    func clearSpot() {
-        defaults.removeObject(forKey: key)
+    func upsertSpot(_ spot: ParkingSpot) {
+        var spots = loadSpots()
+        if let idx = spots.firstIndex(where: { $0.id == spot.id }) {
+            spots[idx] = spot
+        } else {
+            spots.insert(spot, at: 0)
+        }
+        saveSpots(spots)
+    }
+
+    func removeSpot(id: UUID) {
+        var spots = loadSpots()
+        spots.removeAll { $0.id == id }
+        saveSpots(spots)
     }
 
     // MARK: - History
