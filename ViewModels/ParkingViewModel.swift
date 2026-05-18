@@ -138,13 +138,11 @@ final class ParkingViewModel: ObservableObject {
     // MARK: - Private save helper
 
     private func commitSave(location: CLLocation) {
-        if let existing = savedSpot {
-            persistenceService.addToHistory(existing)
-            spotHistory = persistenceService.loadHistory()
-        }
         var spot = ParkingSpot(coordinate: location.coordinate)
         persistenceService.saveSpot(spot)
         savedSpot = spot
+        persistenceService.addToHistory(spot)
+        spotHistory = persistenceService.loadHistory()
         scheduleNotifications()
         errorMessage = nil
 
@@ -152,6 +150,8 @@ final class ParkingViewModel: ObservableObject {
             spot.address = address
             self?.savedSpot = spot
             self?.persistenceService.saveSpot(spot)
+            self?.persistenceService.addToHistory(spot)
+            self?.spotHistory = self?.persistenceService.loadHistory() ?? []
         }
     }
 
