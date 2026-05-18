@@ -1,0 +1,79 @@
+// MARK: - App General
+"app.name" = "ParkSafe";
+
+// MARK: - Header
+"header.subtitle.saved" = "Το αυτοκίνητό σου είναι αποθηκευμένο 🅿️";
+"header.subtitle.empty" = "Αποθήκευσε τη θέση στάθμευσης";
+
+// MARK: - Empty State
+"empty.title" = "Δεν υπάρχει αποθηκευμένη θέση";
+"empty.description" = "Πάτησε το κουμπί για να αποθηκεύσεις\nτην τρέχουσα θέση στάθμευσής σου.";
+
+// MARK: - Save Button
+"button.save" = "Αποθήκευση Θέσης";
+"button.saving" = "Λήψη Τοποθεσίας…";
+"button.clear" = "Διαγραφή Θέσης";
+
+// MARK: - Navigation Card
+"nav.section.title" = "Πλοήγηση";
+"nav.apple.title" = "Apple Maps";
+"nav.apple.subtitle" = "Άνοιγμα στο Maps";
+"nav.google.title" = "Google Maps";
+"nav.google.subtitle" = "Άνοιγμα στο Google";
+
+// MARK: - Notification Card
+"notif.title" = "Υπενθυμίσεις ανά ώρα";
+"notif.subtitle.active" = "Ενεργές για 12 ώρες";
+"notif.subtitle.inactive" = "Λάβε ειδοποίηση κάθε ώρα";
+
+// MARK: - Notification Content
+"notif.alert.title" = "🅿️ Υπενθύμιση Στάθμευσης";
+"notif.alert.body" = "Μην ξεχάσεις πού σταθμεύτηκες! Πάτησε για πλοήγηση.";
+
+// MARK: - Info Chips
+"chip.away %@" = "%@ μακριά";
+"chip.m_away %@" = "%.0f μ. μακριά";
+"chip.km_away %@" = "%.1f χλμ. μακριά";
+
+// MARK: - Clear Confirmation
+"clear.confirm.title" = "Διαγραφή Θέσης Στάθμευσης;";
+"clear.confirm.message" = "Αυτό θα αφαιρέσει την αποθηκευμένη τοποθεσία και θα ακυρώσει όλες τις υπενθυμίσεις.";
+"clear.confirm.action" = "Διαγραφή";
+"clear.confirm.cancel" = "Ακύρωση";
+
+// MARK: - Location Alert
+"location.denied.title" = "Απαιτείται Πρόσβαση Τοποθεσίας";
+"location.denied.message" = "Ενεργοποίησε την πρόσβαση τοποθεσίας στις Ρυθμίσεις για να αποθηκεύσεις τη θέση στάθμευσης.";
+"location.denied.settings" = "Άνοιγμα Ρυθμίσεων";
+"location.denied.cancel" = "Ακύρωση";
+"location.error.no_location" = "Δεν βρέθηκε τοποθεσία. Δοκίμασε ξανά.";
+"location.error.denied" = "Ενεργοποίησε την πρόσβαση τοποθεσίας στις Ρυθμίσεις.";
+
+// MARK: - Onboarding
+"onboarding.step0.title" = "Καλώς ήρθες στο\nParkSafe";
+"onboarding.step0.body" = "Αποθήκευσε τη θέση σου, πλοηγήσου πίσω και λάβε υπενθυμίσεις — όλα με ένα άγγιγμα.";
+"onboarding.step0.cta" = "Ξεκίνα";
+
+"onboarding.step1.title" = "Βρες το Αυτοκίνητό σου\nΕύκολα";
+"onboarding.step1.body" = "Το ParkSafe χρειάζεται την τοποθεσία σου για να καρφιτσώσει πού σταθμεύτηκες και να σε οδηγήσει πίσω.";
+"onboarding.step1.cta" = "Να επιτραπεί η Τοποθεσία";
+
+"onboarding.step2.title" = "Μη Ξεχάσεις\nΠού Σταθμεύτηκες";
+"onboarding.step2.body" = "Θα σε ειδοποιούμε κάθε ώρα για να μην χάσεις την αίσθηση του χρόνου ή ξεπεράσεις το επιτρεπτό.";
+"onboarding.step2.cta" = "Να επιτραπούν οι Ειδοποιήσεις";
+
+"onboarding.step3.title" = "Είσαι Έτοιμος!";
+"onboarding.step3.body" = "Η θέση στάθμευσής σου είναι ένα άγγιγμα μακριά. Ας ξεκινήσουμε.";
+"onboarding.step3.cta" = "Ξεκίνα το ParkSafe";
+
+"onboarding.skip" = "Παράλειψη προς το παρόν";
+
+// MARK: - Permission Badges
+"permission.location.title" = "Πρόσβαση Τοποθεσίας";
+"permission.location.description" = "Χρησιμοποιείται μόνο όταν η εφαρμογή είναι ανοιχτή. Δεν κοινοποιείται.";
+"permission.notif.title" = "Ειδοποιήσεις";
+"permission.notif.description" = "Αποστέλλονται κάθε ώρα. Μπορείς να τις απενεργοποιήσεις ανά πάσα στιγμή.";
+
+// MARK: - Map Accessibility
+"map.pin.label" = "Αποθηκευμένη θέση στάθμευσης";
+"map.pin.hint"  = "Το αυτοκίνητό σου είναι εδώ";

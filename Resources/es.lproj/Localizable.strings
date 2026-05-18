@@ -1,0 +1,79 @@
+// MARK: - App General
+"app.name" = "ParkSafe";
+
+// MARK: - Header
+"header.subtitle.saved" = "Tu coche está guardado 🅿️";
+"header.subtitle.empty" = "Guarda tu lugar de aparcamiento";
+
+// MARK: - Empty State
+"empty.title" = "Sin Lugar Guardado";
+"empty.description" = "Pulsa el botón para guardar\ntu ubicación de aparcamiento actual.";
+
+// MARK: - Save Button
+"button.save" = "Guardar Lugar";
+"button.saving" = "Obteniendo ubicación…";
+"button.clear" = "Eliminar Lugar";
+
+// MARK: - Navigation Card
+"nav.section.title" = "Volver al Coche";
+"nav.apple.title" = "Apple Maps";
+"nav.apple.subtitle" = "Abrir en Maps";
+"nav.google.title" = "Google Maps";
+"nav.google.subtitle" = "Abrir en Google";
+
+// MARK: - Notification Card
+"notif.title" = "Recordatorios por Hora";
+"notif.subtitle.active" = "Activos durante 12 horas";
+"notif.subtitle.inactive" = "Recibe una notificación cada hora";
+
+// MARK: - Notification Content
+"notif.alert.title" = "🅿️ Recordatorio de Aparcamiento";
+"notif.alert.body" = "¡No olvides dónde aparcaste! Pulsa para navegar.";
+
+// MARK: - Info Chips
+"chip.away %@" = "a %@";
+"chip.m_away %@" = "a %.0f m";
+"chip.km_away %@" = "a %.1f km";
+
+// MARK: - Clear Confirmation
+"clear.confirm.title" = "¿Eliminar el Lugar?";
+"clear.confirm.message" = "Se eliminará tu ubicación guardada y se cancelarán todos los recordatorios.";
+"clear.confirm.action" = "Eliminar";
+"clear.confirm.cancel" = "Cancelar";
+
+// MARK: - Location Alert
+"location.denied.title" = "Acceso a Ubicación Requerido";
+"location.denied.message" = "Activa el acceso a la ubicación en Ajustes para guardar tu lugar de aparcamiento.";
+"location.denied.settings" = "Abrir Ajustes";
+"location.denied.cancel" = "Cancelar";
+"location.error.no_location" = "No se pudo determinar tu ubicación. Inténtalo de nuevo.";
+"location.error.denied" = "Activa el acceso a la ubicación en Ajustes.";
+
+// MARK: - Onboarding
+"onboarding.step0.title" = "Bienvenido a\nParkSafe";
+"onboarding.step0.body" = "Guarda tu lugar, obtén indicaciones de vuelta y recibe recordatorios — todo con un toque.";
+"onboarding.step0.cta" = "Empezar";
+
+"onboarding.step1.title" = "Encuentra Tu Coche\nFácilmente";
+"onboarding.step1.body" = "ParkSafe necesita tu ubicación para marcar dónde aparcaste y mostrarte cómo volver.";
+"onboarding.step1.cta" = "Permitir Ubicación";
+
+"onboarding.step2.title" = "Nunca Olvides\nDónde Aparcaste";
+"onboarding.step2.body" = "Te avisaremos cada hora para que nunca pierdas la noción del tiempo ni te pases del límite.";
+"onboarding.step2.cta" = "Permitir Notificaciones";
+
+"onboarding.step3.title" = "¡Todo Listo!";
+"onboarding.step3.body" = "Tu lugar de aparcamiento está a un toque. ¡Vamos allá!";
+"onboarding.step3.cta" = "Usar ParkSafe";
+
+"onboarding.skip" = "Omitir por ahora";
+
+// MARK: - Permission Badges
+"permission.location.title" = "Acceso a Ubicación";
+"permission.location.description" = "Solo cuando la app está abierta. Nunca compartida.";
+"permission.notif.title" = "Notificaciones";
+"permission.notif.description" = "Enviadas cada hora. Desactivables en cualquier momento.";
+
+// MARK: - Map Accessibility
+"map.pin.label" = "Ubicación de aparcamiento guardada";
+"map.pin.hint"  = "Tu coche está aparcado aquí";

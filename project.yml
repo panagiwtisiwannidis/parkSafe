@@ -1,0 +1,60 @@
+name: ParkSafe
+
+options:
+  bundleIdPrefix: com.panos
+  deploymentTarget:
+    iOS: "16.0"
+  defaultConfig: Debug
+  createIntermediateGroups: true
+  developmentLanguage: en
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+
+targets:
+  ParkSafe:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+
+    sources:
+      - path: App
+        excludes:
+          - "Info.plist"
+      - path: Models
+      - path: ViewModels
+      - path: Services
+      - path: Views
+      - path: Resources
+      - path: Assets.xcassets
+      - path: "Preview Content"
+
+    resources:
+      - path: App/PrivacyInfo.xcprivacy
+
+    settings:
+      base:
+        PRODUCT_NAME: ParkSafe
+        PRODUCT_BUNDLE_IDENTIFIER: com.panos.parksafe
+        INFOPLIST_FILE: App/Info.plist
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        DEVELOPMENT_ASSET_PATHS: '"Preview Content"'
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+      configs:
+        Debug:
+          DEBUG_INFORMATION_FORMAT: dwarf
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          VALIDATE_PRODUCT: YES

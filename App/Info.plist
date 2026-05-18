@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <!-- LOCATION — WhenInUse only (FIXED: removed Always key) -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>ParkSafe needs your location to save your parking spot and help you navigate back to your car.</string>
+
+    <!-- GOOGLE MAPS URL SCHEME CHECK -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>googlemaps</string>
+    </array>
+
+    <!-- ENCRYPTION — required for App Store submission -->
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+
+    <!-- LOCALIZATION -->
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>el</string>
+        <string>fr</string>
+        <string>de</string>
+        <string>es</string>
+    </array>
+
+    <!-- APP DISPLAY -->
+    <key>CFBundleDisplayName</key>
+    <string>ParkSafe</string>
+
+    <!-- LAUNCH SCREEN — no storyboard needed, uses asset color + image -->
+    <key>UILaunchScreen</key>
+    <dict>
+        <key>UIColorName</key>
+        <string>BGTop</string>
+        <key>UIImageName</key>
+        <string>LaunchLogo</string>
+        <key>UIImageRespectsSafeAreaInsets</key>
+        <true/>
+    </dict>
+
+    <!-- UI CONFIGURATION -->
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+    </dict>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+
+    <!-- NOTE: UIBackgroundModes REMOVED.
+         Local UNTimeIntervalNotificationTrigger notifications do NOT
+         require any background execution mode. -->
+
+</dict>
+</plist>

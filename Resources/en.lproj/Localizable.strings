@@ -1,0 +1,79 @@
+// MARK: - App General
+"app.name" = "ParkSafe";
+
+// MARK: - Header
+"header.subtitle.saved" = "Your car is saved 🅿️";
+"header.subtitle.empty" = "Save your parking spot";
+
+// MARK: - Empty State
+"empty.title" = "No Parking Spot Saved";
+"empty.description" = "Tap the button below to save\nyour current parking location.";
+
+// MARK: - Save Button
+"button.save" = "Save Parking Spot";
+"button.saving" = "Getting Location…";
+"button.clear" = "Clear Parking Spot";
+
+// MARK: - Navigation Card
+"nav.section.title" = "Navigate Back";
+"nav.apple.title" = "Apple Maps";
+"nav.apple.subtitle" = "Open in Maps";
+"nav.google.title" = "Google Maps";
+"nav.google.subtitle" = "Open in Google";
+
+// MARK: - Notification Card
+"notif.title" = "Hourly Reminders";
+"notif.subtitle.active" = "Active for 12 hours";
+"notif.subtitle.inactive" = "Get notified every hour";
+
+// MARK: - Notification Content
+"notif.alert.title" = "🅿️ Parking Reminder";
+"notif.alert.body" = "Don't forget where you parked! Tap to navigate back.";
+
+// MARK: - Info Chips
+"chip.away %@" = "%@ away";
+"chip.m_away %@" = "%.0f m away";
+"chip.km_away %@" = "%.1f km away";
+
+// MARK: - Clear Confirmation
+"clear.confirm.title" = "Clear Parking Spot?";
+"clear.confirm.message" = "This will remove your saved location and cancel all reminders.";
+"clear.confirm.action" = "Clear";
+"clear.confirm.cancel" = "Cancel";
+
+// MARK: - Location Alert
+"location.denied.title" = "Location Access Required";
+"location.denied.message" = "Please enable location access in Settings to save your parking spot.";
+"location.denied.settings" = "Open Settings";
+"location.denied.cancel" = "Cancel";
+"location.error.no_location" = "No location available. Please try again.";
+"location.error.denied" = "Please enable location access in Settings.";
+
+// MARK: - Onboarding
+"onboarding.step0.title" = "Welcome to\nParkSafe";
+"onboarding.step0.body" = "Save your parking spot, get directions back, and receive reminders — all in one tap.";
+"onboarding.step0.cta" = "Get Started";
+
+"onboarding.step1.title" = "Find Your Car\nEasily";
+"onboarding.step1.body" = "ParkSafe needs your location to pin where you parked and show you how to get back.";
+"onboarding.step1.cta" = "Allow Location";
+
+"onboarding.step2.title" = "Never Forget\nWhere You Parked";
+"onboarding.step2.body" = "We'll ping you every hour so you never lose track of your car or overstay your time.";
+"onboarding.step2.cta" = "Allow Notifications";
+
+"onboarding.step3.title" = "You're All Set!";
+"onboarding.step3.body" = "Your parking spot is a tap away. Let's get started.";
+"onboarding.step3.cta" = "Start Using ParkSafe";
+
+"onboarding.skip" = "Skip for now";
+
+// MARK: - Permission Badges
+"permission.location.title" = "Location Access";
+"permission.location.description" = "Used only while the app is open. Never shared.";
+"permission.notif.title" = "Notifications";
+"permission.notif.description" = "Sent every hour. Easily turned off anytime.";
+
+// MARK: - Map Accessibility
+"map.pin.label" = "Saved parking location";
+"map.pin.hint"  = "Your car is parked here";
