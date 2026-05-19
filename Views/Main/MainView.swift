@@ -19,7 +19,7 @@ struct MainView: View {
                         SaveSpotButton()
                     } else {
                         spotPager
-                        NotificationToggleCard()
+                        ReminderCard()
                         AddSpotButton()
                         if let id = selectedSpotID {
                             ClearSpotButton(spotId: id)

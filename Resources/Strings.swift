@@ -36,13 +36,18 @@ enum Strings {
         static var googleSubtitle: String { L("nav.google.subtitle") }
     }
 
-    // MARK: - Notifications
+    // MARK: - Notifications (content only — used by NotificationService)
     enum Notif {
-        static var title:           String { L("notif.title") }
-        static var subtitleActive:  String { L("notif.subtitle.active") }
-        static var subtitleInactive: String { L("notif.subtitle.inactive") }
-        static var alertTitle:      String { L("notif.alert.title") }
-        static var alertBody:       String { L("notif.alert.body") }
+        static var alertTitle: String { L("notif.alert.title") }
+        static var alertBody:  String { L("notif.alert.body") }
+    }
+
+    // MARK: - Reminder Card
+    enum Reminder {
+        static var title:   String { L("reminder.title") }
+        static var hint:    String { L("reminder.hint") }
+        static var custom:  String { L("reminder.custom") }
+        static var confirm: String { L("reminder.confirm") }
     }
 
     // MARK: - Distance Chips

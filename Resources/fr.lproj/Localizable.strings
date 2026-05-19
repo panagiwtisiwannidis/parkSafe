@@ -22,10 +22,11 @@
 "nav.google.title" = "Google Maps";
 "nav.google.subtitle" = "Ouvrir dans Google";
 
-// MARK: - Notification Card
-"notif.title" = "Rappels Horaires";
-"notif.subtitle.active" = "Actifs pendant 12 heures";
-"notif.subtitle.inactive" = "Recevoir une notification chaque heure";
+// MARK: - Reminder Card
+"reminder.title" = "Rappel de Stationnement";
+"reminder.hint" = "Définissez l'heure de retour à votre voiture";
+"reminder.custom" = "Autre…";
+"reminder.confirm" = "Définir le rappel";
 
 // MARK: - Notification Content
 "notif.alert.title" = "🅿️ Rappel de Stationnement";

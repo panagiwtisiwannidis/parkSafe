@@ -6,10 +6,11 @@ import Foundation
 
 final class PersistenceService {
 
-    private let spotsKey   = "parksafe_saved_spots"
-    private let legacyKey  = "parksafe_saved_spot"
-    private let historyKey = "parksafe_spot_history"
-    private let maxHistory = 20
+    private let spotsKey      = "parksafe_saved_spots"
+    private let legacyKey     = "parksafe_saved_spot"
+    private let historyKey    = "parksafe_spot_history"
+    private let reminderKey   = "parksafe_reminder_date"
+    private let maxHistory    = 20
     private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -52,6 +53,23 @@ final class PersistenceService {
         var spots = loadSpots()
         spots.removeAll { $0.id == id }
         saveSpots(spots)
+    }
+
+    // MARK: - Reminder Date
+
+    func loadReminderDate() -> Date? {
+        let t = defaults.double(forKey: reminderKey)
+        guard t > 0 else { return nil }
+        let date = Date(timeIntervalSince1970: t)
+        return date > Date() ? date : nil
+    }
+
+    func saveReminderDate(_ date: Date?) {
+        if let date {
+            defaults.set(date.timeIntervalSince1970, forKey: reminderKey)
+        } else {
+            defaults.removeObject(forKey: reminderKey)
+        }
     }
 
     // MARK: - History

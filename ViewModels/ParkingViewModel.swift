@@ -14,8 +14,8 @@ final class ParkingViewModel: ObservableObject {
 
     @Published var savedSpots: [ParkingSpot] = []
     @Published var spotHistory: [ParkingSpot] = []
+    @Published var reminderDate: Date?
     @Published var isLocating: Bool = false
-    @Published var notificationsEnabled: Bool = false
     @Published var errorMessage: String?
 
     // Forwarded from LocationService
@@ -35,10 +35,10 @@ final class ParkingViewModel: ObservableObject {
     // MARK: - Init
 
     init(
-        locationService: LocationService       = LocationService(),
+        locationService: LocationService         = LocationService(),
         notificationService: NotificationService = NotificationService(),
-        navigationService: NavigationService   = NavigationService(),
-        persistenceService: PersistenceService = PersistenceService()
+        navigationService: NavigationService     = NavigationService(),
+        persistenceService: PersistenceService   = PersistenceService()
     ) {
         self.locationService     = locationService
         self.notificationService = notificationService
@@ -46,11 +46,9 @@ final class ParkingViewModel: ObservableObject {
         self.persistenceService  = persistenceService
 
         bindLocationService()
-        savedSpots = persistenceService.loadSpots()
-        spotHistory = persistenceService.loadHistory()
-        notificationService.checkPendingStatus { [weak self] active in
-            self?.notificationsEnabled = active
-        }
+        savedSpots   = persistenceService.loadSpots()
+        spotHistory  = persistenceService.loadHistory()
+        reminderDate = persistenceService.loadReminderDate()
     }
 
     // MARK: - Bind LocationService → ViewModel
@@ -64,9 +62,7 @@ final class ParkingViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] location in
                 self?.currentLocation = location
-                if self?.isLocating == true {
-                    self?.isLocating = false
-                }
+                if self?.isLocating == true { self?.isLocating = false }
             }
             .store(in: &cancellables)
 
@@ -82,25 +78,20 @@ final class ParkingViewModel: ObservableObject {
 
     // MARK: - Intents (Views call these)
 
-    /// Step 1 of onboarding — request location permission.
     func requestLocationPermission() {
         locationService.requestPermission()
     }
 
-    /// Step 2 of onboarding — request notification permission.
     func requestNotificationPermission(completion: @escaping (Bool) -> Void) {
         notificationService.requestPermission(completion: completion)
     }
 
-    /// Refresh user location for distance display (non-blocking).
     func locateUser() {
         guard !locationService.isDenied else { return }
         locationService.requestOneTimeLocation()
     }
 
     /// Locate the user then immediately save as parking spot.
-    /// Reacts to the first valid GPS fix via Combine.
-    /// Times out after 15s so isLocating never stays true forever.
     func locateAndSave() {
         guard !locationService.isDenied else {
             errorMessage = Strings.Location.errorDenied
@@ -114,9 +105,7 @@ final class ParkingViewModel: ObservableObject {
             .filter { $0.horizontalAccuracy >= 0 && $0.horizontalAccuracy < 100 }
             .first()
             .setFailureType(to: LocationError.self)
-            .timeout(.seconds(15), scheduler: RunLoop.main) {
-                LocationError.noLocationAvailable
-            }
+            .timeout(.seconds(15), scheduler: RunLoop.main) { LocationError.noLocationAvailable }
             .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
@@ -143,7 +132,6 @@ final class ParkingViewModel: ObservableObject {
         savedSpots = persistenceService.loadSpots()
         persistenceService.addToHistory(spot)
         spotHistory = persistenceService.loadHistory()
-        scheduleNotifications()
         errorMessage = nil
 
         reverseGeocode(location: location) { [weak self] address in
@@ -155,11 +143,12 @@ final class ParkingViewModel: ObservableObject {
         }
     }
 
-    /// Remove a specific parking spot by ID.
+    // MARK: - Spot Intents
+
     func clearSpot(id: UUID) {
         persistenceService.removeSpot(id: id)
         savedSpots = persistenceService.loadSpots()
-        if savedSpots.isEmpty { cancelNotifications() }
+        if savedSpots.isEmpty { cancelReminder() }
     }
 
     func updateSpotNote(id: UUID, note: String?) {
@@ -180,13 +169,15 @@ final class ParkingViewModel: ObservableObject {
         }
         spotHistory = persistenceService.loadHistory()
         savedSpots  = persistenceService.loadSpots()
-        if savedSpots.isEmpty { cancelNotifications() }
+        if savedSpots.isEmpty { cancelReminder() }
     }
 
     func clearHistory() {
         persistenceService.clearHistory()
         spotHistory = []
     }
+
+    // MARK: - Navigation Intents
 
     func navigateWithAppleMaps(spot: ParkingSpot) {
         navigationService.openAppleMaps(to: spot.coordinate)
@@ -196,19 +187,30 @@ final class ParkingViewModel: ObservableObject {
         navigationService.openGoogleMaps(to: spot.coordinate)
     }
 
-    /// Toggle hourly reminders on or off.
-    func toggleNotifications() {
-        notificationsEnabled ? cancelNotifications() : scheduleNotifications()
+    // MARK: - Reminder Intents
+
+    func setReminder(at date: Date) {
+        notificationService.scheduleReminder(at: date)
+        reminderDate = date
+        persistenceService.saveReminderDate(date)
     }
 
-    /// Re-sync notification status from the system (call on appear).
+    func cancelReminder() {
+        notificationService.cancelReminders()
+        reminderDate = nil
+        persistenceService.saveReminderDate(nil)
+    }
+
+    /// Re-sync reminder state from the system (call on appear).
     func refreshNotificationStatus() {
         notificationService.checkPendingStatus { [weak self] active in
-            self?.notificationsEnabled = active
+            if !active {
+                self?.reminderDate = nil
+                self?.persistenceService.saveReminderDate(nil)
+            }
         }
     }
 
-    /// HIGH FIX: Clear the app badge (call when app becomes active).
     func resetBadge() {
         notificationService.resetBadge()
     }
@@ -220,33 +222,18 @@ final class ParkingViewModel: ObservableObject {
         return spot.formattedDistance(from: current)
     }
 
-    var locationIsDenied: Bool {
-        locationService.isDenied
-    }
+    var locationIsDenied: Bool { locationService.isDenied }
 
     // MARK: - Private Helpers
-
-    private func scheduleNotifications() {
-        notificationService.scheduleHourlyReminders()
-        notificationsEnabled = true
-    }
-
-    private func cancelNotifications() {
-        notificationService.cancelReminders()
-        notificationsEnabled = false
-    }
 
     private func reverseGeocode(location: CLLocation, completion: @escaping (String?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, _ in
-            guard let p = placemarks?.first else {
-                completion(nil)
-                return
-            }
+            guard let p = placemarks?.first else { completion(nil); return }
             var parts: [String] = []
-            if let name = p.name { parts.append(name) }
+            if let name = p.name          { parts.append(name) }
             else if let road = p.thoroughfare { parts.append(road) }
-            if let city = p.locality { parts.append(city) }
+            if let city = p.locality      { parts.append(city) }
             completion(parts.isEmpty ? nil : parts.joined(separator: ", "))
         }
     }

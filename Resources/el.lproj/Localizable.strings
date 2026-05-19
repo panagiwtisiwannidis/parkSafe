@@ -22,10 +22,11 @@
 "nav.google.title" = "Google Maps";
 "nav.google.subtitle" = "Άνοιγμα στο Google";
 
-// MARK: - Notification Card
-"notif.title" = "Υπενθυμίσεις ανά ώρα";
-"notif.subtitle.active" = "Ενεργές για 12 ώρες";
-"notif.subtitle.inactive" = "Λάβε ειδοποίηση κάθε ώρα";
+// MARK: - Reminder Card
+"reminder.title" = "Υπενθύμιση Στάθμευσης";
+"reminder.hint" = "Ορίστε πότε να επιστρέψετε στο αυτοκίνητο";
+"reminder.custom" = "Άλλο…";
+"reminder.confirm" = "Ορισμός Υπενθύμισης";
 
 // MARK: - Notification Content
 "notif.alert.title" = "🅿️ Υπενθύμιση Στάθμευσης";

@@ -22,10 +22,11 @@
 "nav.google.title" = "Google Maps";
 "nav.google.subtitle" = "In Google öffnen";
 
-// MARK: - Notification Card
-"notif.title" = "Stündliche Erinnerungen";
-"notif.subtitle.active" = "Aktiv für 12 Stunden";
-"notif.subtitle.inactive" = "Jede Stunde benachrichtigt werden";
+// MARK: - Reminder Card
+"reminder.title" = "Parkzeiterinnerung";
+"reminder.hint" = "Stell ein, wann du zurück zum Auto musst";
+"reminder.custom" = "Andere…";
+"reminder.confirm" = "Erinnerung setzen";
 
 // MARK: - Notification Content
 "notif.alert.title" = "🅿️ Parkerinnerung";

@@ -22,10 +22,11 @@
 "nav.google.title" = "Google Maps";
 "nav.google.subtitle" = "Abrir en Google";
 
-// MARK: - Notification Card
-"notif.title" = "Recordatorios por Hora";
-"notif.subtitle.active" = "Activos durante 12 horas";
-"notif.subtitle.inactive" = "Recibe una notificación cada hora";
+// MARK: - Reminder Card
+"reminder.title" = "Recordatorio de Aparcamiento";
+"reminder.hint" = "Establece una hora para volver al coche";
+"reminder.custom" = "Otro…";
+"reminder.confirm" = "Establecer Recordatorio";
 
 // MARK: - Notification Content
 "notif.alert.title" = "🅿️ Recordatorio de Aparcamiento";
