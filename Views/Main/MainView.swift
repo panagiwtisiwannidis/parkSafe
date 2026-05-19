@@ -58,18 +58,14 @@ struct MainView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(vm.savedSpots) { spot in
-                        VStack(spacing: 16) {
-                            SavedSpotCard(spot: spot)
-                            NavigationCard(spot: spot)
-                        }
-                        .containerRelativeFrame(.horizontal)
+                        SpotPageView(spot: spot)
+                            .containerRelativeFrame(.horizontal)
                     }
                 }
                 .scrollTargetLayout()
             }
             .scrollTargetBehavior(.viewAligned)
             .scrollPosition(id: $selectedSpotID)
-            // clip negative margin so cards don't bleed into header
             .padding(.horizontal, -20)
             .padding(.leading, 20)
         }
@@ -84,6 +80,51 @@ struct MainView: View {
                     .animation(.spring(response: 0.3), value: selectedSpotID)
             }
         }
+    }
+}
+
+// MARK: - Spot Page (one card in the carousel, owns swipe-up-to-delete)
+
+private struct SpotPageView: View {
+    @EnvironmentObject var vm: ParkingViewModel
+    let spot: ParkingSpot
+
+    @State private var dragY: CGFloat = 0
+    @State private var deleting = false
+
+    var body: some View {
+        VStack(spacing: 16) {
+            SavedSpotCard(spot: spot)
+            NavigationCard(spot: spot)
+        }
+        .offset(y: dragY)
+        .opacity(deleting ? 0 : max(0, 1 - abs(dragY) / 160.0))
+        .gesture(
+            DragGesture()
+                .onChanged { v in
+                    guard !deleting else { return }
+                    let t = v.translation
+                    // only upward drags that are more vertical than horizontal
+                    if t.height < 0 && abs(t.height) > abs(t.width) {
+                        dragY = t.height
+                    }
+                }
+                .onEnded { v in
+                    guard !deleting else { return }
+                    let t = v.translation
+                    if t.height < -80 && abs(t.height) > abs(t.width) {
+                        withAnimation(.easeIn(duration: 0.22)) {
+                            dragY = -350
+                            deleting = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            vm.clearSpot(id: spot.id)
+                        }
+                    } else {
+                        withAnimation(.spring(response: 0.35)) { dragY = 0 }
+                    }
+                }
+        )
     }
 }
 

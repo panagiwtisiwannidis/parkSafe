@@ -173,8 +173,14 @@ final class ParkingViewModel: ObservableObject {
     // MARK: - History Intents
 
     func deleteFromHistory(at offsets: IndexSet) {
-        offsets.forEach { persistenceService.removeFromHistory(id: spotHistory[$0].id) }
+        let ids = offsets.map { spotHistory[$0].id }
+        ids.forEach {
+            persistenceService.removeFromHistory(id: $0)
+            persistenceService.removeSpot(id: $0)
+        }
         spotHistory = persistenceService.loadHistory()
+        savedSpots  = persistenceService.loadSpots()
+        if savedSpots.isEmpty { cancelNotifications() }
     }
 
     func clearHistory() {
